@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Datos Personales</string>
+    <string name="txtDatosPersonales">Datos Personales</string>
+    <string name="hintNombre">Escribe tu nombre</string>
+    <string name="hintApellidos">Escribe tus apellidos</string>
+    <string name="hintEdad">Indica tu edad</string>
+    <string name="radio_hombre">Hombre</string>
+    <string name="radio_mujer">Mujer</string>
+    <string name="sw_hijos">Hijos</string>
+    <string name="No">No</string>
+    <string name="Sí">Sí</string>
+    <string-array name="estado_civil">
+        <item>Estado Civil</item>
+        <item>Solter@</item>
+        <item>Casad@</item>
+        <item>Separad@</item>
+        <item>Viud@</item>
+        <item>Otr@</item>
+    </string-array>
+    <string name="btnNotificacion">Enviar</string>
+    <string name="btnClear">Borrar</string>
+</resources>

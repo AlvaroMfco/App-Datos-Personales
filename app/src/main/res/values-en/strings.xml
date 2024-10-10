@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Personal Data</string>
+    <string name="txtDatosPersonales">Personal Data</string>
+    <string name="hintNombre">Write your name</string>
+    <string name="hintApellidos">Write your last name</string>
+    <string name="hintEdad">Select age</string>
+    <string name="radio_hombre">Man</string>
+    <string name="radio_mujer">Woman</string>
+    <string name="sw_hijos">Children</string>
+    <string name="No">No</string>
+    <string name="Sí">Yes</string>
+    <string name="btnNotificacion">Send</string>
+    <string name="btnClear">Clear</string>
+    <string-array name="estado_civil">
+        <item>Marital Status</item>
+        <item>Single</item>
+        <item>Married</item>
+        <item>Divorced</item>
+        <item>Widow/er</item>
+        <item>Other</item>
+    </string-array>
+</resources>
