@@ -19,4 +19,19 @@
     </string-array>
     <string name="btnNotificacion">Enviar</string>
     <string name="btnClear">Borrar</string>
+
+    <!-- Mensajes de error -->
+    <string name="error_nombre">Debe introducir un nombre</string>
+    <string name="error_apellidos">Debe introducir un apellido</string>
+    <string name="error_edad">Debe introducir una edad válida</string>
+    <string name="error_sexo">Debe seleccionar un sexo</string>
+    <string name="error_estado_civil">Debe seleccionar un estado civil</string>
+
+    <!-- Mensajes Toast -->
+    <string name="mayor_edad">mayor de edad</string>
+    <string name="menor_edad">menor de edad</string>
+    <string name="con_hijos">con hijos</string>
+    <string name="sin_hijos">sin hijos</string>
+    <string name="borrar_campos">Campos borrados</string>
+
 </resources>

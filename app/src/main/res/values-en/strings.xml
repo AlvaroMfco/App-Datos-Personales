@@ -3,7 +3,7 @@
     <string name="txtDatosPersonales">Personal Data</string>
     <string name="hintNombre">Write your name</string>
     <string name="hintApellidos">Write your last name</string>
-    <string name="hintEdad">Select age</string>
+    <string name="hintEdad">Insert age</string>
     <string name="radio_hombre">Man</string>
     <string name="radio_mujer">Woman</string>
     <string name="sw_hijos">Children</string>
@@ -19,4 +19,14 @@
         <item>Widow/er</item>
         <item>Other</item>
     </string-array>
+    <string name="error_nombre">Name Required</string>
+    <string name="error_apellidos">Last Name Required</string>
+    <string name="error_edad">Valid Age Required</string>
+    <string name="error_sexo">Gender Required</string>
+    <string name="error_estado_civil">Marital Status Required</string>
+    <string name="mayor_edad">adult</string>
+    <string name="menor_edad">under-age</string>
+    <string name="con_hijos">with children</string>
+    <string name="sin_hijos">without children</string>
+    <string name="borrar_campos">Fields Cleared</string>
 </resources>

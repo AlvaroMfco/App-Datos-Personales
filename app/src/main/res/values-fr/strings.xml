@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Données personnelles</string>
+    <string name="txtDatosPersonales">Données personnelles</string>
+    <string name="hintNombre">Nom</string>
+    <string name="hintApellidos">Nom de famille</string>
+    <string name="hintEdad">Âge</string>
+    <string name="radio_hombre">Homme</string>
+    <string name="radio_mujer">Femmes</string>
+    <string name="sw_hijos">Enfants</string>
+    <string name="No">Non</string>
+    <string name="Sí">Oui</string>
+    <string name="btnNotificacion">Envoyer</string>
+    <string name="btnClear">Supprimer</string>
+    <string-array name="estado_civil">
+        <item>État civil</item>
+        <item>Célibataire</item>
+        <item>Marié</item>
+        <item>Séparé</item>
+        <item>Veuf</item>
+        <item>Autre</item>
+    </string-array>
+    <string name="error_nombre">Nom Requis</string>
+    <string name="error_apellidos">Nom de famille Requis</string>
+    <string name="error_edad">Âge valide requis</string>
+    <string name="error_sexo">Genre requis</string>
+    <string name="error_estado_civil">État civil requis</string>
+    <string name="mayor_edad">adulte</string>
+    <string name="menor_edad">mineur</string>
+    <string name="con_hijos">avec des enfants</string>
+    <string name="sin_hijos">sans enfants</string>
+    <string name="borrar_campos">Champs effacés</string>
+</resources>

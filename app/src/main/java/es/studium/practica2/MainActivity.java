@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //EditText
         nombre = findViewById(R.id.editTextText);
-        nombre.requestFocus(); // Hacer que al ejecutar escribamos directamente en el campo "Nombre"
+        // Hacer que al ejecutar escribamos directamente en el campo "Nombre"
+        nombre.requestFocus();
         apellidos = findViewById(R.id.editTextText2);
         edad = findViewById(R.id.editTextText3);
 
@@ -78,49 +79,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         stringNombre = nombre.getText().toString();
         stringApellidos = apellidos.getText().toString();
         stringEdad = edad.getText().toString();
-        if (idioma.equals("es")) { //Si el idioma es español
-            if (stringNombre.isEmpty()) {
-                mensaje.append("Debe introducir un nombre\n");
-            }
-            if (stringApellidos.isEmpty()) {
-                mensaje.append("Debe introducir un apellido\n");
-            }
-            if (stringEdad.isEmpty() || Integer.parseInt(stringEdad) > 100) {
-                mensaje.append("Debe introducir una edad válida\n");
-            }
-            if (!radioHombre.isChecked() && !radioMujer.isChecked()) {
-                mensaje.append("Debe seleccionar un sexo\n");
-            }
-            estadoCivil = spinnerEstadoCivil.getSelectedItem().toString();
-            if (estadoCivil.equals("Estado Civil")) {
-                mensaje.append("Debe seleccionar un estado civil\n");
-            }
+
+        if (stringNombre.isEmpty()) {
+            mensaje.append(getString(R.string.error_nombre)).append("\n");
         }
-        else if (idioma.equals("en")) { //Si el idioma es inglés
-            if (stringNombre.isEmpty()) {
-                mensaje.append("Name Required\n");
-            }
-            if (stringApellidos.isEmpty()) {
-                mensaje.append("Last Name Required\n");
-            }
-            if (stringEdad.isEmpty() || Integer.parseInt(stringEdad) > 100) {
-                mensaje.append("Age Required\n");
-            }
-            if (!radioHombre.isChecked() && !radioMujer.isChecked()) {
-                mensaje.append("Gender Required\n");
-            }
-            estadoCivil = spinnerEstadoCivil.getSelectedItem().toString();
-            if (estadoCivil.equals("Marital Status")) {
-                mensaje.append("Marital Status Required\n");
-            }
+        if (stringApellidos.isEmpty()) {
+            mensaje.append(getString(R.string.error_apellidos)).append("\n");
         }
-        return mensaje.toString(); // Retornar el mensaje acumulado
+        if (stringEdad.isEmpty() || Integer.parseInt(stringEdad) > 100) {
+            mensaje.append(getString(R.string.error_edad)).append("\n");
+        }
+        if (!radioHombre.isChecked() && !radioMujer.isChecked()) {
+            mensaje.append(getString(R.string.error_sexo)).append("\n");
+        }
+        estadoCivil = spinnerEstadoCivil.getSelectedItem().toString();
+        if (spinnerEstadoCivil.getSelectedItemPosition() == 0) {
+            mensaje.append(getString(R.string.error_estado_civil)).append("\n");
+        }
+
+
+        return mensaje.toString();
     }
 
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.button2) {
+        if (view.getId() == R.id.button2) { //btnEnviar
             // Limpiar mensaje
             tvEtiqueta.setText("");
 
@@ -134,34 +118,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Asignar valores después de la verificación
             stringEdad = edad.getText().toString();
 
+            //Si es menor o mayor de edad.
             int edadInt = Integer.parseInt(stringEdad);
-            if (idioma.equals("es")) {
-                stringEdad = (edadInt < 18) ? "menor de edad" : "mayor de edad";
-            } else if (idioma.equals("en")) {
-                stringEdad = (edadInt < 18) ? "Under-age" : "Adult";
-            }
+            stringEdad = getString((edadInt < 18) ? R.string.menor_edad : R.string.mayor_edad);
 
 
             //RadioButtons
             sexo = radioHombre.isChecked() ? radioHombre.getText().toString() : radioMujer.getText().toString();
 
             //Switch
-            if (idioma.equals("es")) {
-                hijos = switchHijos.isChecked() ? "con hijos" : "sin hijos";
-            } else if (idioma.equals("en")) {
-                hijos = switchHijos.isChecked() ? "with children" : "without children";
-            }
+            hijos = getString(switchHijos.isChecked() ? R.string.con_hijos : R.string.sin_hijos);
+
 
             // Mostrar los resultados en Toast
             if (idioma.equals("es")) {
-                Toast.makeText(this, stringApellidos + ", " + stringNombre + ", " + stringEdad + ", " + sexo + " " + estadoCivil + " y " + hijos, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, stringApellidos + ", " + stringNombre + ", " + stringEdad + ". " + sexo + " " + estadoCivil + " y " + hijos, Toast.LENGTH_LONG).show();
             }
             else if (idioma.equals("en")) {
-                Toast.makeText(this, stringApellidos + ", " + stringNombre + ", " + stringEdad + ", " + estadoCivil + " " + sexo + " and " + hijos, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, stringApellidos + ", " + stringNombre + ", " + stringEdad + ", " + estadoCivil + " " + sexo + " " + hijos, Toast.LENGTH_LONG).show();
 
             }
+            else if (idioma.equals("fr")) {
+                Toast.makeText(this, stringApellidos + ", " + stringNombre + ", " + stringEdad + ". " + sexo + " " + estadoCivil + " et " + hijos, Toast.LENGTH_LONG).show();
+            }
         }
-
         else if (view.getId() == R.id.button) { // btnBorrar
             // Limpiar todos los campos
             nombre.setText("");
@@ -172,7 +152,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switchHijos.setChecked(false);
             spinnerEstadoCivil.setSelection(0); // Spinner en "Estado Civil"
             tvEtiqueta.setText(""); // Limpiar la etiqueta
-            Toast.makeText(this, "Campos borrados", Toast.LENGTH_SHORT).show();
+            nombre.requestFocus(); // Hacer que al ejecutar escribamos directamente en el campo "Nombre"
+
+            // Mostrar mensaje en Toast
+            Toast.makeText(this, R.string.borrar_campos, Toast.LENGTH_SHORT).show();
+
+
+
         }
     }
 }
+
